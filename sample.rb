@@ -8,7 +8,7 @@
 class Drink
   attr_reader :name, :price
 
-  def self.cola
+  def self.cola # Drink.cola で cola(インスタンス)を返すクラスメソッド
     self.new 120, :cola
   end
 
@@ -25,7 +25,7 @@ class VendingMachine
   MONEY = [10, 50, 100, 500, 1000].freeze
 
   # （自動販売機に投入された金額をインスタンス変数の @slot_money に代入する）
-  def initialize
+  def initialize #VendingMachine.new で自動的に呼ばれるメソッド
     # 最初の自動販売機に入っている金額は0円
     @slot_money = 0
     @sale_amount = 0
@@ -82,7 +82,7 @@ class VendingMachine
   end
 
   # 投入金額の総計を取得できる。
-  def current_slot_money
+  def current_slot_money #vm.current_slot_money で 使用可能金額を表示
     # 自動販売機に入っているお金を表示する
     @slot_money
   end
@@ -99,7 +99,7 @@ class VendingMachine
   end
 
   # 払い戻し操作を行うと、投入金額の総計を釣り銭として出力する。
-  def return_money
+  def return_money　#vm.return_money で 使用可能金額(@slot_money)を表示し、@slot_money = 0 として返金処理
     # 返すお金の金額を表示する
     puts @slot_money
     # 自動販売機に入っているお金を0円に戻す
