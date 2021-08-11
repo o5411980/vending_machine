@@ -59,14 +59,15 @@ class VendingMachine
 #    @stock_list[:cola] = 0
     @can_buy = false
 #    @stock_list #メソッド呼出順によりインスタンス変数@stock_listがカラになるので、検証用
-    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] > 1)
+    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
       @can_buy = true
     end
     puts "price:#{Drink.cola.price}, stock:#{@stock_list[:cola]}, slot_money:#{@slot_money}, can_buy?:#{@can_buy}"
+    @can_buy = false
   end
 
   def purchase_cola #vm.purchase_cola で colaを１本購入
-    if @can_buy
+    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
       puts "1 cola purchased"
       @sale_amount += Drink.cola.price
       @slot_money -= Drink.cola.price
@@ -99,7 +100,7 @@ class VendingMachine
   end
 
   # 払い戻し操作を行うと、投入金額の総計を釣り銭として出力する。
-  def return_money　#vm.return_money で 使用可能金額(@slot_money)を表示し、@slot_money = 0 として返金処理
+  def return_money #vm.return_money で 使用可能金額(@slot_money)を表示し、@slot_money = 0 として返金処理
     # 返すお金の金額を表示する
     puts @slot_money
     # 自動販売機に入っているお金を0円に戻す

@@ -56,9 +56,28 @@ class VendingMachine
     @drinks.push(drink)
   end
 
+  def sales_count
+    @sale_amount
+  end
 
+#  def query_cola
+#    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
+#      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できます。"
+#    else
+#      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できません。"
+#    end
+#  end
 
-
+  def purchase_cola
+    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
+      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できます。"
+      @sale_amount += Drink.cola.price
+      @slot_money -= Drink.cola.price
+      @drinks.delete_at(0)
+    else
+      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できません。"
+    end
+  end
 
 
   # 投入金額の総計を取得できる。
