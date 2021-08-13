@@ -92,6 +92,7 @@ class VendingMachine
     end
   end
 
+
   def purchase_cola
     if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
       puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、1本購入しました。"
@@ -159,7 +160,7 @@ class VendingMachine
   # 払い戻し操作を行うと、投入金額の総計を釣り銭として出力する。
   def return_money
     # 返すお金の金額を表示する
-    puts "#{@slot_money}円のお返しです。"
+    puts @slot_money
     # 自動販売機に入っているお金を0円に戻す
     @slot_money = 0
   end
@@ -173,22 +174,4 @@ class FiveTimesStore < VendingMachine
     super
     super
   end
-end
-
-class PurchaseAndReturn < VendingMachine
-  def purchase_cola_and_return
-    purchase_cola
-    return_money
-  end
-
-  def purchase_redbull_and_return
-    purchase_redbull
-    return_money
-  end
-
-  def purchase_water_and_return
-    purchase_water
-    return_money
-  end
-
 end
