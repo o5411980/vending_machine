@@ -7,12 +7,14 @@ masterブランチとdevelopブランチを作成し、両方に8/13日のstep5�
 このリポジトリへのpushコマンド；<br>
   % git push git@github.com:o5411980/vending_machine.git ローカルブランチ名<br>
     ※ ローカルブランチ名 ; 開発を行った各自のローカルのブランチ名<br>
-  % github上でプルリクを作成する時に、比較対象としてdevelopブランチを選択(※デフォルトで選択されている)。<br>
+このコマンドで、ローカルブランチ名のブランチがリモート上に作成される。
+次に、githubのサイト(https://github.com/o5411980/vending_machine/)にアクセスして、プルリクを作成する。
+プルリクを作成する時に、比較対象としてdevelopブランチを選択(※デフォルトで選択されている)。<br>
 <br>
 次の担当は、前担当のプルリクがMergeした後、リモートのdevelopブランチをローカルにプル(またはクローン)。<br>
   % git pull git@github.com:o5411980/vending_machine.git develop<br>
 これで最新のdevelopブランチがローカル上にできる。そこから新しくローカルの作業用ブランチ(仮にissues/#6とする）を分岐。<br>
-  % git branch<br>
+  % git branch　で developブランチにいることを確認<br>
   % git checkout -b issues/#6<br>
 これで分岐したissues/#6ブランチが作成されて移動するので、issues/#6ブランチでリファクタリング作業。<br>
 リファクタリングできたら、ローカルのissues/#6ブランチでaddとcommit。
