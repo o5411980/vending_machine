@@ -10,6 +10,7 @@ masterブランチとdevelopブランチを作成し、両方に8/13日のstep5�
 このコマンドで、ローカルブランチ名のブランチがリモート上に作成される。
 次に、githubのサイト(https://github.com/o5411980/vending_machine/)にアクセスして、プルリクを作成する。
 プルリクを作成する時に、比較対象としてdevelopブランチを選択(※デフォルトで選択されている)。<br>
+グループ内で確認して問題なければ、Mergeしてdevelopブランチへ反映。
 <br>
 次の担当は、前担当のプルリクがMergeした後、リモートのdevelopブランチをローカルにプル(またはクローン)。<br>
   % git pull git@github.com:o5411980/vending_machine.git develop<br>
