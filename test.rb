@@ -52,17 +52,14 @@ class VendingMachine
     @drinks
   end
 
+
+
   def stock_info #vm.stock_info　在庫リスト表示
-    cola_count = 0
-    redbull_count = 0
-    water_count = 0
-    @drinks.each do |element|
-      cola_count += 1 if element.name == :cola
-      redbull_count += 1 if element.name == :redbull
-      water_count += 1 if element.name == :water
-    end
-    @stock_list = {cola: cola_count, redbull: redbull_count, water: water_count}
+    all = {cola: Drink.cola, redbull: Drink.redbull, water: Drink.water}
+    @stock_list = all.map{|key, value| [key, @drinks.find_all{|i| i.name==value.name}.size] }.to_h
   end
+
+
 
   def store(drink) #vm.store Drink.cola
     @drinks.push(drink)
