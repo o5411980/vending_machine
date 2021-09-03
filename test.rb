@@ -78,16 +78,16 @@ class VendingMachine
 #  end
 
   def which_can_buy #vm.which_can_buyで購入可能リスト表示
-    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
-      puts "#{Drink.cola.name}の価格#{Drink.cola.price}円、投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できます。"
-    end
-    if (@slot_money >= Drink.redbull.price) && (@stock_list[:redbull] >= 1)
-      puts "#{Drink.redbull.name}の価格#{Drink.redbull.price}円、投入金額#{@slot_money}円、在庫#{@stock_list[:redbull]}、購入できます。"
-    end
-    if (@slot_money >= Drink.water.price) && (@stock_list[:water] >= 1)
-      puts "#{Drink.water.name}の価格#{Drink.water.price}円、投入金額#{@slot_money}円、在庫#{@stock_list[:water]}、購入できます。"
+    all = {cola: Drink.cola, redbull: Drink.redbull, water: Drink.water}
+    all.each do |key, value|
+      if (@slot_money >= value.price) && (@stock_list[key] >= 1)
+        puts "#{value.name}の価格#{value.price}円、投入金額#{@slot_money}円、在庫#{@stock_list[key]}、購入できます。"
+      else
+        puts "#{value.name}は購入できません"
+      end
     end
   end
+
 
   def purchase_cola #vm.purchase_colaでcola購入
     if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
