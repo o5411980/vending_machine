@@ -88,54 +88,46 @@ class VendingMachine
     end
   end
 
+#    def purchase1(drink) #vm.purchase (Drink.cola)でcola購入
+#     if (@slot_money >= drink.price) && (@stock_list[drink.name] >= 1)
+#       puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、1本購入しました。"
+#       @sale_amount += drink.price
+#       @slot_money -= drink.price
+#       @stock_list[drink.name] -= 1
+# #      @drinks.delete_at(0)  #一品目用
+#       @drinks.delete_if do |element|
+#         element.name == :cola #条件式
+#       end
+#       @stock_list[drink.name].times {@drinks.push(drink)}
+#     else
+#       puts "投入金額#{@slot_money}円、在庫#{@stock_list[drink.name]}、購入できません。"
+#     end
+#   end
 
-  def purchase_cola #vm.purchase_colaでcola購入
-    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
-      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、1本購入しました。"
-      @sale_amount += Drink.cola.price
-      @slot_money -= Drink.cola.price
-      @stock_list[:cola] -= 1
-#      @drinks.delete_at(0)  #一品目用
-      @drinks.delete_if do |element|
-        element.name == :cola #条件式
+  def purchase(drink) #vm.purchase Drink.colaでcola購入
+    if (@slot_money >= drink.price) && (@stock_list[drink.name] >=1 )
+      puts "投入金額#{@slot_money}円、在庫#{@stock_list[drink.name]}、1本購入しました。"
+      @sale_amount += drink.price
+      @slot_money -= drink.price
+      @stock_list[drink.name] -= 1
+      #↓↓↓↓↓↓↓↓↓リファクタリング箇所↓↓↓↓↓↓↓↓↓
+      rest = []
+      @drinks = @drinks.partition{|e| e.name == drink.name}
+      @drinks[0].delete_at(0)
+      @drinks.each do |x|
+        unless x.empty?
+          x.each do |y|
+            rest << y
+        end
       end
-      @stock_list[:cola].times {@drinks.push(Drink.cola)}
+    end
+    @drinks = rest
+    #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
     else
-      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できません。"
+      puts "投入金額#{@slot_money}円、在庫#{@stock_list[drink.name]}、購入できません。"
     end
   end
 
-  def purchase_redbull
-    if (@slot_money >= Drink.redbull.price) && (@stock_list[:redbull] >= 1)
-      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:redbull]}、1本購入しました。"
-      @sale_amount += Drink.redbull.price
-      @slot_money -= Drink.redbull.price
-      @stock_list[:redbull] -= 1
-#      @drinks.delete_at(0)  #一品目用
-      @drinks.delete_if do |element|
-        element.name == :redbull #条件式
-      end
-      @stock_list[:redbull].times {@drinks.push(Drink.redbull)}
-    else
-      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:redbull]}、購入できません。"
-    end
-  end
-
-  def purchase_water
-    if (@slot_money >= Drink.water.price) && (@stock_list[:water] >= 1)
-      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:water]}、1本購入しました。"
-      @sale_amount += Drink.water.price
-      @slot_money -= Drink.water.price
-      @stock_list[:water] -= 1
-#      @drinks.delete_at(0)  #一品目用
-      @drinks.delete_if do |element|
-        element.name == :water #条件式
-      end
-      @stock_list[:water].times {@drinks.push(Drink.water)}
-    else
-      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:water]}、購入できません。"
-    end
-  end
 
   # 投入金額の総計を取得できる。
   def current_slot_money #vm.current_slot_moneyで入金額表示
