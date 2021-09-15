@@ -31,7 +31,6 @@ class Drink
 
 end
 
-
 class VendingMachine
   # ステップ０　お金の投入と払い戻しの例コード
   # ステップ１　扱えないお金の例コード
@@ -44,42 +43,28 @@ class VendingMachine
     # 最初の自動販売機に入っている金額は0円
     @slot_money = 0
     @sale_amount = 0
+    @all = {cola: Drink.cola, redbull: Drink.redbull, water: Drink.water}
     @drinks = []
     5.times {@drinks.push(Drink.cola)}
   end
 
-  def stocks #vm.stocks　在庫(インスタンス自体)表示
-    @drinks
-  end
-
-
-
   def stock_info #vm.stock_info　在庫リスト表示
-    all = {cola: Drink.cola, redbull: Drink.redbull, water: Drink.water}
-    @stock_list = all.map{|key, value| [key, @drinks.find_all{|i| i.name==value.name}.size] }.to_h
+    # all = {cola: Drink.cola, redbull: Drink.redbull, water: Drink.water}
+    @stock_list = @all.map{|key, value| [key, @drinks.find_all{|i| i.name==value.name}.size] }.to_h
   end
 
-
-
-  def store(drink) #vm.store Drink.cola
-    @drinks.push(drink)
+  def store(drink, quantity = 1) #vm.store Drink.cola, 5
+    quantity.times {@drinks.push(drink)}
   end
 
   def sales_count #vm.sales_count で売上額表示
     @sale_amount
   end
 
-#  def query_cola
-#    if (@slot_money >= Drink.cola.price) && (@stock_list[:cola] >= 1)
-#      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できます。"
-#    else
-#      puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、購入できません。"
-#    end
-#  end
-
   def which_can_buy #vm.which_can_buyで購入可能リスト表示
-    all = {cola: Drink.cola, redbull: Drink.redbull, water: Drink.water}
-    all.each do |key, value|
+    stock_info
+    # all = {cola: Drink.cola, redbull: Drink.redbull, water: Drink.water}
+    @all.each do |key, value|
       if (@slot_money >= value.price) && (@stock_list[key] >= 1)
         puts "#{value.name}の価格#{value.price}円、投入金額#{@slot_money}円、在庫#{@stock_list[key]}、購入できます。"
       else
@@ -88,46 +73,18 @@ class VendingMachine
     end
   end
 
-#    def purchase1(drink) #vm.purchase (Drink.cola)でcola購入
-#     if (@slot_money >= drink.price) && (@stock_list[drink.name] >= 1)
-#       puts "投入金額#{@slot_money}円、在庫#{@stock_list[:cola]}、1本購入しました。"
-#       @sale_amount += drink.price
-#       @slot_money -= drink.price
-#       @stock_list[drink.name] -= 1
-# #      @drinks.delete_at(0)  #一品目用
-#       @drinks.delete_if do |element|
-#         element.name == :cola #条件式
-#       end
-#       @stock_list[drink.name].times {@drinks.push(drink)}
-#     else
-#       puts "投入金額#{@slot_money}円、在庫#{@stock_list[drink.name]}、購入できません。"
-#     end
-#   end
-
   def purchase(drink) #vm.purchase Drink.colaでcola購入
+    stock_info
     if (@slot_money >= drink.price) && (@stock_list[drink.name] >=1 )
       puts "投入金額#{@slot_money}円、在庫#{@stock_list[drink.name]}、1本購入しました。"
       @sale_amount += drink.price
       @slot_money -= drink.price
       @stock_list[drink.name] -= 1
-      #↓↓↓↓↓↓↓↓↓リファクタリング箇所↓↓↓↓↓↓↓↓↓
-      rest = []
-      @drinks = @drinks.partition{|e| e.name == drink.name}
-      @drinks[0].delete_at(0)
-      @drinks.each do |x|
-        unless x.empty?
-          x.each do |y|
-            rest << y
-        end
-      end
-    end
-    @drinks = rest
-    #↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+      @drinks.delete_at(@drinks.find_index{|element| element.name == drink.name})
     else
       puts "投入金額#{@slot_money}円、在庫#{@stock_list[drink.name]}、購入できません。"
     end
   end
-
 
   # 投入金額の総計を取得できる。
   def current_slot_money #vm.current_slot_moneyで入金額表示
@@ -154,30 +111,9 @@ class VendingMachine
   end
 end
 
-class FiveTimesStore < VendingMachine
-  def store(drink) #vm=FiveTimesStore.newして、vm.store Drink.cola
-    super
-    super
-    super
-    super
-    super
-  end
-end
-
 class PurchaseAndReturn < VendingMachine
-  def purchase_cola_and_return #vm=PurchaseAndReturn.newして、vm.purchase_cola_and_return
-    purchase_cola
+  def purchase(drink) #vm=PurchaseAndReturn.newして、vm.purchase Drink.cola
+    super
     return_money
   end
-
-  def purchase_redbull_and_return
-    purchase_redbull
-    return_money
-  end
-
-  def purchase_water_and_return
-    purchase_water
-    return_money
-  end
-
 end
