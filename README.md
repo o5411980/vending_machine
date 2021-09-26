@@ -9,7 +9,7 @@
 品質規格のISO審査を受ける時は特に大変です。あの文書がない、このバージョンではない等、様々な問題がおこります。<br>
 **システム化されたプラットフォームで技術文書を管理**すればそんな問題は解決できる。そう考えて作成に至りました。
 
-### このアプリを利用するメリット
+### このアプリを導入するメリット
 - 品質に関する国際規格 ISO9001の審査に必要な技術文書を簡単に取得できる
 - Design Reviewのプロセスをシステムに落とし込み、技術文書と紐付けて一元管理する
 - アプリ上に技術文書を投稿、閲覧できるようにして、メールによる文書配布を減らす
@@ -22,7 +22,7 @@
 ## 就職Termの技術
 - devise
 - Ajax (承認、コメント機能)
-- AWSデプロイ (EC2, S3)
+
 
 ## カリキュラム外の技術
 - ransack
@@ -37,7 +37,7 @@
 ## 実行手順
 ```
 $ git clone git@github.com:o5411980/tech_document_hub.git
-$ cd original_app
+$ cd tech_document_hub
 $ bundle install
 $ rails db:create
 $ rails db:migrate
@@ -45,17 +45,18 @@ $ yarn add jquery
 $ rails s
 ```
 ## カタログ設計
-[カタログ設計](https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit#gid=782464957)
+[カタログ設計](https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit?usp=sharing)
 
 ## テーブル設計
-[テーブル設計](https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit#gid=2020033787)
+[テーブル設計](https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit?usp=sharing)
 
 ## ER図  
-[画像リンク](https://app.diagrams.net/?title=Copy%20of%20ER6.drawio&client=1#G17Kw5L-IuHbt1ic_sw0pYdxz2Vr81_3Fe)
-<img src="/Users/o541/workspace/tech_document_hub/app/assets/images/Copy of ER6.drawio.png">
+[画像リンク](https://drive.google.com/file/d/1aSuncwrSrecR00lg1o7VfjsmJpYcmCOJ/view?usp=sharing)
+<img src="/Users/o541/workspace/tech_document_hub/app/assets/images/ER7.drawio.png">
 
 ## 画面遷移図  
-<!-- ![画面遷移図](https://i.gyazo.com/4e2f20dcbe74eb16e0d471891913153e.png) -->
+[画像リンク](https://drive.google.com/file/d/1sOr9LaEKm9Wu_lmMlYpSI_eqJbaf5XMZ/view?usp=sharing)
+<img src="/Users/o541/workspace/tech_document_hub/app/assets/images/卒業課題-画面遷移図v0.drawio.png">
 
 ## ワイヤーフレーム
-<!-- [ワイヤーフレーム](https://cacoo.com/diagrams/YurmX2riFADlnI3Z/7F0CC)  -->
+[画像リンク](https://drive.google.com/file/d/1hd_KE79VbueAOYegy1BB5slUrS-rDCT0/view?usp=sharing)
