@@ -52,11 +52,11 @@ $ rails s
 
 ## ER図  
 [画像リンク](https://drive.google.com/file/d/1aSuncwrSrecR00lg1o7VfjsmJpYcmCOJ/view?usp=sharing)
-<img src="/Users/o541/workspace/tech_document_hub/app/assets/images/ER7.drawio.png">
+<img src="app/assets/images/ER7.drawio.png">
 
 ## 画面遷移図  
 [画像リンク](https://drive.google.com/file/d/1sOr9LaEKm9Wu_lmMlYpSI_eqJbaf5XMZ/view?usp=sharing)
-<img src="/Users/o541/workspace/tech_document_hub/app/assets/images/卒業課題-画面遷移図v0.drawio.png">
+<img src="app/assets/images/卒業課題-画面遷移図v0.drawio.png">
 
 ## ワイヤーフレーム
 [画像リンク](https://drive.google.com/file/d/1hd_KE79VbueAOYegy1BB5slUrS-rDCT0/view?usp=sharing)
