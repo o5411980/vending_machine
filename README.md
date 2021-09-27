@@ -45,18 +45,20 @@ $ yarn add jquery
 $ rails s
 ```
 ## カタログ設計
-[カタログ設計](https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit?usp=sharing)
+https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit?usp=sharing
+
+
 
 ## テーブル設計
-[テーブル設計](https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit?usp=sharing)
+https://docs.google.com/spreadsheets/d/1D7LluP8UTfq4_VnRRmOjcXbqda8tJ9lRP-vIZdVH9Ow/edit?usp=sharing
 
 ## ER図  
-[画像リンク](https://drive.google.com/file/d/1aSuncwrSrecR00lg1o7VfjsmJpYcmCOJ/view?usp=sharing)
+https://drive.google.com/file/d/1aSuncwrSrecR00lg1o7VfjsmJpYcmCOJ/view?usp=sharing
 <img src="app/assets/images/ER7.drawio.png">
 
 ## 画面遷移図  
-[画像リンク](https://drive.google.com/file/d/1sOr9LaEKm9Wu_lmMlYpSI_eqJbaf5XMZ/view?usp=sharing)
+https://drive.google.com/file/d/1sOr9LaEKm9Wu_lmMlYpSI_eqJbaf5XMZ/view?usp=sharing
 <img src="app/assets/images/卒業課題-画面遷移図v0.drawio.png">
 
 ## ワイヤーフレーム
-[画像リンク](https://drive.google.com/file/d/1hd_KE79VbueAOYegy1BB5slUrS-rDCT0/view?usp=sharing)
+https://drive.google.com/file/d/1hd_KE79VbueAOYegy1BB5slUrS-rDCT0/view?usp=sharing
