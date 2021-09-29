@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, only: %i[ new edit update destroy ]
   # GET /documents or /documents.json
   def index
     @documents = Document.all
