@@ -36,3 +36,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise-i18n'
+gem 'rails_admin', '~> 2.0'
