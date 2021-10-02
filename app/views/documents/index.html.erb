@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Documents</h1>
+<% if current_user.admin == true %>
+  <h1>Documents_admin</h1>
+<% else %>
+  <h1>Documents</h1>
+<% end %>
 
 <table>
   <thead>
