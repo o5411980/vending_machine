@@ -26,6 +26,16 @@
     <%= form.file_field :filepath %>
   </div>
 
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.select :category, [["その他文書", 0],["ビジネスプラン", 1]], include_blank: "選択してください" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :authorize %>
+    <%= form.select :authorize, [["未承認", false],["承認", true]], include_blank: "選択してください" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
