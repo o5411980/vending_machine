@@ -10,5 +10,11 @@
   <%= @document.content %>
 </p>
 
+<p>
+  <strong>File:</strong>
+  <%= @document.filepath %>
+  <a href="/Users/o541/workspace/tech_document_hub/public/uploads/document/filepath/1/test.pdf">リンク</a>
+</p>
+
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>

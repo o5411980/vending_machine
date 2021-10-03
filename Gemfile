@@ -39,3 +39,4 @@ gem 'devise-i18n'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'rubocop', require: false
+gem 'carrierwave', '~> 2.0'
