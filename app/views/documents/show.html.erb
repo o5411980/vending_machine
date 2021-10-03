@@ -16,5 +16,15 @@
   <a href="/Users/o541/workspace/tech_document_hub/public/uploads/document/filepath/1/test.pdf">リンク</a>
 </p>
 
+<p>
+  <strong>ファイル種別:</strong>
+  <%= @document.category %>
+</p>
+
+<p>
+  <strong>承認:</strong>
+  <%= @document.authorize %>
+</p>
+
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>
