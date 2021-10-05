@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Requester:</strong>
+  <%= @review.requester %>
+</p>
+
+<p>
+  <strong>Stage:</strong>
+  <%= @review.stage %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @review.description %>
+</p>
+
+<p>
+  <strong>Former review:</strong>
+  <%= @review.former_review %>
+</p>
+
+<p>
+  <strong>Date on:</strong>
+  <%= @review.date_on %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @review.deadline %>
+</p>
+
+<p>
+  <strong>Judge:</strong>
+  <%= @review.judge %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @review.comment %>
+</p>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>

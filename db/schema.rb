@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_04_144447) do
+ActiveRecord::Schema.define(version: 2021_10_05_082128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.integer "location"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string "title"
@@ -32,6 +40,27 @@ ActiveRecord::Schema.define(version: 2021_10_04_144447) do
     t.string "description"
     t.integer "status"
     t.integer "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.integer "status"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "requester"
+    t.integer "stage"
+    t.text "description"
+    t.integer "former_review"
+    t.datetime "date_on"
+    t.datetime "deadline"
+    t.boolean "judge", default: false
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
