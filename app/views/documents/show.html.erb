@@ -12,8 +12,7 @@
 
 <p>
   <strong>File:</strong>
-  <%= @document.filepath %>
-  <a href="/Users/o541/workspace/tech_document_hub/public/uploads/document/filepath/1/test.pdf">リンク</a>
+  <%= link_to @document.filepath, @document.filepath.url %>
 </p>
 
 <p>
