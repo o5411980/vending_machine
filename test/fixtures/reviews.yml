@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requester: 1
+  stage: 1
+  description: MyText
+  former_review: 1
+  date_on: 2021-10-05 16:57:56
+  deadline: 2021-10-05 16:57:56
+  judge: false
+  comment: MyText
+
+two:
+  requester: 1
+  stage: 1
+  description: MyText
+  former_review: 1
+  date_on: 2021-10-05 16:57:56
+  deadline: 2021-10-05 16:57:56
+  judge: false
+  comment: MyText
