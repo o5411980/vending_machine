@@ -4,8 +4,30 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment, autofocus: true %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :admin %><br />
+    <p><%= current_user.admin %> ※管理者権限は管理画面から編集</p>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :employee_number %><br />
+    <%= f.text_field :employee_number, autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
