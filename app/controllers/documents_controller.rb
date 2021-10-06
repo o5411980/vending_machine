@@ -4,7 +4,15 @@ class DocumentsController < ApplicationController
 
   # GET /documents or /documents.json
   def index
-    @documents = Document.all
+  #    @documents = Document.all
+    @q = Document.ransack(params[:q])
+    @documents = @q.result(distinct: true)
+
+    products = Product.all
+    @product_choice = []
+    products.each do |product|
+      @product_choice << [product.name, product.id]
+    end
   end
 
   # GET /documents/1 or /documents/1.json

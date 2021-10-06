@@ -4,6 +4,19 @@
   <h1>Documents</h1>
 <% end %>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :title, "Keyword" %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.label :product_id, "対象製品" %>
+  <%= f.select :product_id_eq, @product_choice, {include_blank: '選択なし'} %>
+
+  <%= f.label :category, "文書タイプ" %>
+  <%= f.select :category_eq, [[0, 0], [1, 1]], {include_blank: '選択なし'} %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
 <table>
   <thead>
     <tr>
