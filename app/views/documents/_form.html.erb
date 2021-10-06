@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :product_id %>
+    <%= form.select :product_id, @product_choice %>
+  </div>
+
+  <div class="field">
     <%= form.label :filepath %>
     <%= form.file_field :filepath %>
   </div>

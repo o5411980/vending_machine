@@ -1,28 +1,49 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: %i[show edit update destroy]
+  before_action :set_document, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[new edit update destroy]
+
   # GET /documents or /documents.json
   def index
-    @documents = Document.all
+  #    @documents = Document.all
+    @q = Document.ransack(params[:q])
+    @documents = @q.result(distinct: true)
+
+    products = Product.all
+    @product_choice = []
+    products.each do |product|
+      @product_choice << [product.name, product.id]
+    end
   end
 
   # GET /documents/1 or /documents/1.json
   def show
+#    byebug
   end
 
   # GET /documents/new
   def new
     @document = Document.new
+    products = Product.all
+    @product_choice = []
+    products.each do |product|
+      @product_choice << [product.name, product.id]
+    end
   end
 
   # GET /documents/1/edit
   def edit
+    products = Product.all
+    @product_choice = []
+    products.each do |product|
+      @product_choice << [product.name, product.id]
+    end
   end
 
   # POST /documents or /documents.json
   def create
     @document = Document.new(document_params)
-
+#    byebug
+    @document.product_id = document_params[:product_id] #入力時に選択した製品のidを、documentの外部 key として記録
     respond_to do |format|
       if @document.save
         format.html { redirect_to @document, notice: "Document was successfully created." }
@@ -36,6 +57,7 @@ class DocumentsController < ApplicationController
 
   # PATCH/PUT /documents/1 or /documents/1.json
   def update
+    @document.product_id = document_params[:product_id] #入力時に選択した製品のidを、documentの外部 key として記録
     respond_to do |format|
       if @document.update(document_params)
         format.html { redirect_to @document, notice: "Document was successfully updated." }
@@ -64,6 +86,6 @@ class DocumentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def document_params
-      params.require(:document).permit(:title, :content, :filepath, :category, :control_number, :authorize)
+      params.require(:document).permit(:title, :content, :product_id, :filepath, :category, :control_number, :authorize)
     end
 end
