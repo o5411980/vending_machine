@@ -1,0 +1,16 @@
+<h1>Mypage</h1>
+
+<h3>ユーザー名</h3>
+<%= @user.name %>
+<h3>メールアドレス</h3>
+<%= @user.email %>
+<h3>コメント</h3>
+<%= @user.comment %>
+<h3>管理者権限</h3>
+<%= @user.admin %>
+<h3>社員番号</h3>
+<%= @user.employee_number %>
+<br>
+<br>
+<%= link_to 'プロフィールを編集', edit_user_registration_path %><br>
+<%= link_to '管理者画面', rails_admin_path if current_user.admin == true %>
