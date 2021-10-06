@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_06_064848) do
+ActiveRecord::Schema.define(version: 2021_10_06_131251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_10_06_064848) do
     t.integer "category"
     t.integer "control_number"
     t.boolean "authorize"
+    t.bigint "product_id"
+    t.index ["product_id"], name: "index_documents_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -88,4 +90,5 @@ ActiveRecord::Schema.define(version: 2021_10_06_064848) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "documents", "products"
 end
