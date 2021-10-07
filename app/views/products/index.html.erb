@@ -2,6 +2,22 @@
 
 <h1>Products</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :name, "製品名" %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :category, "製品カテゴリー" %>
+  <%= f.select :category_eq, [['マウス', 1], ['キーボード', 2], ['バッテリー', 3]], {include_blank: '選択なし'} %>
+
+  <%= f.label :status, "ステータス" %>
+  <%= f.select :status_eq, [['開発中', 0], ['製造中', 1], ['製造中止', 2]], {include_blank: '選択なし'} %>
+
+  <%= f.label :location, "製造拠点" %>
+  <%= f.select :location_eq, [['未定', 0], ['東京', 1], ['深圳', 2], ['バンコク', 3], ['ダラス', 4]], {include_blank: '選択なし'} %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
 <table>
   <thead>
     <tr>
