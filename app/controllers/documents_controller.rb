@@ -1,17 +1,28 @@
 class DocumentsController < ApplicationController
+  include ActionController::Streaming
+  include Zipline
   before_action :set_document, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[new edit update destroy]
 
   # GET /documents or /documents.json
   def index
-  #    @documents = Document.all
-    @q = Document.ransack(params[:q])
-    @documents = @q.result(distinct: true)
-
     products = Product.all
     @product_choice = []
     products.each do |product|
       @product_choice << [product.name, product.id]
+    end
+
+#    @documents = Document.all
+    @q = Document.ransack(params[:q])
+    @documents = @q.result(distinct: true)
+
+    respond_to do |format|
+      format.html
+      format.zip do
+#        byebug
+        files =  @documents.where.not(filepath: nil).map{ |document| [document.filepath, "#{document.title}.pdf"] }
+        zipline(files, 'documents.zip')
+      end
     end
   end
 

@@ -41,3 +41,4 @@ gem 'cancancan'
 gem 'rubocop', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'ransack'
+gem 'zipline'
