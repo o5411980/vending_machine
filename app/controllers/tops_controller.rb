@@ -4,8 +4,9 @@ skip_before_action :authenticate_user!
   end
 
   def guest_sign_in
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+    user = User.find_or_create_by!(email: 'guest_admin@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.admin = true
     end
     sign_in user
     redirect_to homes_path, notice: 'ゲストユーザーとしてログイン'

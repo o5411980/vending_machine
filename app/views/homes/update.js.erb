@@ -1,0 +1,4 @@
+$("textarea").val("");
+$("input").val("");
+$('#exampleModal').modal('hide')
+$('.recipes').html("<%= escape_javascript(render 'adminmsg', users: @users) %>")
