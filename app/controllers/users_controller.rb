@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def update
-  #Ajacsで管理者メッセージ更新。カラム追加したら comment → admin_messageに変更
-  @users = User.all
+  #Ajacsで管理者メッセージ更新。
+  @users = User.where(admin: true)
   @user = current_user
   @user.update(admin_message: homes_params)
   end
