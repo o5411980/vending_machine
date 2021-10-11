@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :stage %>
-    <%= form.number_field :stage %>
+    <%= form.label :stage, "Status" %>
+    <%= form.select :stage, [['Review 1', 0], ['Review 2', 1], ['Review 3', 2]], {include_blank: '選択なし'} %>
   </div>
 
   <div class="field">

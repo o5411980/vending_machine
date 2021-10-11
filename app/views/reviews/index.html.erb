@@ -2,7 +2,17 @@
 
 <h1>Reviews</h1>
 
-<table>
+<%= search_form_for @q do |f| %>
+  <%= f.label :stage, "Stage" %>
+  <%= f.select :stage_eq, [['Review 1', 0], ['Review 2', 1], ['Review 3', 2]], {include_blank: '選択なし'} %>
+
+  <%= f.label :judge, "Judge" %>
+  <%= f.select :judge_eq, [['pass', true], ['not passed', false]], {include_blank: '選択なし'} %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
+<table border="0" CELLPADDING=5 CELLSPACING=2 style='border-collapse: separate; border-spacing: 5px;' >
   <thead>
     <tr>
       <th>Requester</th>

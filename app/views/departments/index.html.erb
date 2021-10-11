@@ -2,7 +2,17 @@
 
 <h1>Departments</h1>
 
-<table>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name, "Department" %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :location, "Location" %>
+  <%= f.select :location_eq, [['東京', 0], ['深圳', 1], ['バンコク', 2], ['デュッセルドルフ', 3], ['ダラス', 4]], {include_blank: '選択なし'} %>
+
+  <%= f.submit "検索" %>
+<% end %>
+
+<table border="0" CELLPADDING=5 CELLSPACING=2 style='border-collapse: separate; border-spacing: 5px;' >
   <thead>
     <tr>
       <th>Name</th>

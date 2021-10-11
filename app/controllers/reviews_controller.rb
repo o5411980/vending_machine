@@ -3,7 +3,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.all
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result(distinct: true)
   end
 
   # GET /reviews/1 or /reviews/1.json
