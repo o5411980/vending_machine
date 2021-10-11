@@ -3,7 +3,8 @@ class DepartmentsController < ApplicationController
 
   # GET /departments or /departments.json
   def index
-    @departments = Department.all
+    @q = Department.ransack(params[:q])
+    @departments = @q.result(distinct: true)
   end
 
   # GET /departments/1 or /departments/1.json
