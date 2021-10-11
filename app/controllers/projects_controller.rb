@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
+    @q = Project.ransack(params[:q])
+    @projects = @q.result(distinct: true)
   end
 
   # GET /projects/1 or /projects/1.json
