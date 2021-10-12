@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :location, "Location" %>
-    <%= form.select :location, [['東京', 0], ['深圳', 1], ['バンコク', 2], ['デュッセルドルフ', 3], ['ダラス', 4]], {include_blank: '選択なし'} %>
+    <%= form.select :location, Department.locations.keys.to_a, {include_blank: '選択なし'} %>
   </div>
 
   <div class="field">
