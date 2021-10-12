@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :status, "Status" %>
-    <%= form.select :status, [['活動中', 0], ['一時中止', 1], ['廃止', 2]], {include_blank: '選択なし'} %>
+    <%= form.select :status, Project.statuses.keys.to_a, {include_blank: '選択なし'} %>
   </div>
 
   <div class="field">

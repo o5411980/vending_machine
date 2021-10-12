@@ -7,7 +7,7 @@
   <%= f.search_field :name_cont %>
 
   <%= f.label :status, "Status" %>
-  <%= f.select :status_eq, [['活動中', 0], ['一時中止', 1], ['廃止', 2]], {include_blank: '選択なし'} %>
+  <%= f.select :status_eq, Project.statuses.to_a, {include_blank: '選択なし'} %>
 
   <%= f.submit "検索" %>
 <% end %>
