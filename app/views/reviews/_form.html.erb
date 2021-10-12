@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :stage, "Status" %>
-    <%= form.select :stage, [['Review 1', 0], ['Review 2', 1], ['Review 3', 2]], {include_blank: '選択なし'} %>
+    <%= form.label :stage, "Stage" %>
+    <%= form.select :stage, Review.stages.keys.to_a, {include_blank: '選択なし'} %>
   </div>
 
   <div class="field">
@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= form.label :judge %>
-    <%= form.check_box :judge %>
+    <%= form.select :judge, Review.judges.keys.to_a %>
   </div>
 
   <div class="field">
