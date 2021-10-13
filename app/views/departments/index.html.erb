@@ -7,7 +7,7 @@
   <%= f.search_field :name_cont %>
 
   <%= f.label :location, "Location" %>
-  <%= f.select :location_eq, [['東京', 0], ['深圳', 1], ['バンコク', 2], ['デュッセルドルフ', 3], ['ダラス', 4]], {include_blank: '選択なし'} %>
+  <%= f.select :location_eq, Department.locations.to_a, {include_blank: '選択なし'} %>
 
   <%= f.submit "検索" %>
 <% end %>

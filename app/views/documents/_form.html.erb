@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :product_id %>
-    <%= form.select :product_id, @product_choice %>
+    <%= form.select :product_id, @product_choice, include_blank: "選択してください" %>
   </div>
 
   <div class="field">
@@ -33,12 +33,12 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.select :category, [["その他文書", 0],["ビジネスプラン", 1]], include_blank: "選択してください" %>
+    <%= form.select :category, Document.categories.keys.to_a, include_blank: "選択してください" %>
   </div>
 
   <div class="field">
     <%= form.label :authorize %>
-    <%= form.select :authorize, [["未承認", false],["承認", true]], include_blank: "選択してください" %>
+    <%= form.select :authorize, Document.authorizes.keys.to_a, include_blank: "選択してください" %>
   </div>
 
   <div class="actions">

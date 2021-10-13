@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.number_field :category %>
+    <%= form.select :category, Product.categories.keys.to_a, {include_blank: '選択なし'} %>
   </div>
 
   <div class="field">
@@ -28,12 +28,12 @@
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.select :status, Product.statuses.keys.to_a, {include_blank: '選択なし'} %>
   </div>
 
   <div class="field">
     <%= form.label :location %>
-    <%= form.number_field :location %>
+    <%= form.select :location, Product.locations.keys.to_a, {include_blank: '選択なし'} %>
   </div>
 
   <div class="actions">
