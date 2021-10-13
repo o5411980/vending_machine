@@ -14,10 +14,15 @@
   <%= f.label :category, "文書タイプ" %>
   <%= f.select :category_eq, Document.categories.to_a, {include_blank: '選択なし'} %>
 
-  <%= f.submit "検索" %>
+  <%= f.submit "検索", 'data-disable-with' => false %>
+  <%= f.submit "一括ダウンロード", formaction: documents_path(format: :zip), 'data-disable-with' => false %>
 <% end %>
 
-<%= link_to '一括ダウンロード', documents_path(format: :zip) %>
+<% if params[:q].present? %>
+  <%= link_to '一括ダウンロード', documents_path(format: :zip, "q"=>{"title_cont"=>"#{params[:q][:title_cont]}", "product_id_eq"=>"#{params[:q][:product_id_eq]}", "category_eq"=>"#{params[:q][:category_eq]}"}) %>
+<% else %>
+  <%= link_to '一括ダウンロード', documents_path(format: :zip, "q"=>{"title_cont"=>"", "product_id_eq"=>"", "category_eq"=>""}) %>
+<% end %>
 
 <table border="0" CELLPADDING=5 CELLSPACING=2 style='border-collapse: separate; border-spacing: 5px;'>
   <thead>
